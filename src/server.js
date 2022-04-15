@@ -12,4 +12,13 @@ app.use(json())
 app.use(urlencoded({ extended: true }))
 app.use(morgan('dev'))
 
-export const start = () => {}
+app.get('/data', (req, res) => {
+  res.send({ hello: 'world' })
+  console.log('get responded to')
+})
+
+export const start = () => {
+  app.listen(3000, () => {
+    console.log('server is on')
+  })
+}
